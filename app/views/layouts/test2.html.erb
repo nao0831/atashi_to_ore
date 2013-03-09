@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<title>アタシとオレ</title>
+
+<!-- ナビゲーションバー　-->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand pull-left">
+				<%= image_tag 'logo3.png' %>
+				</a>
+				<ul class="nav">
+					<li><a href="#">Profile</a></li>
+				  <li class="divider-vertical"></li>
+					<li><a href="#">Achieves</a></li>
+				  <li class="divider-vertical"></li>
+					<li><a href="#">Diary</a></li>
+				</ul>
+				<form class="navbar-search pull-right">
+    			<input type="text" class="search-query" placeholder="Search">
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="hero-unit">
+  <h1>
+  	！！！！！！！
+	<%= image_tag 'logo1.jpg', :class=> "img-rounded" %>
+	<!-- <%= image_tag 'sample.png', :class=> "img-rounded" %> -->
+  </h1>
+  <p>Tagline</p>
+  <p>
+    <a class="btn btn-primary btn-large">
+      Learn more
+    </a>
+  </p>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="span10">
+      <!--Body content-->
+      本体
+    <%= yield %>
+    </div>
+    <div class="span2">
+      <!--SideBar content-->
+      サイドバー
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

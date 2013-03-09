@@ -1,0 +1,47 @@
+		<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+
+<body>
+<div  class="container">	
+	<title>アタシとオレ</title>
+
+<!-- <%= image_tag 'sample.png'%> -->
+	<header>
+		<nav>
+		<ul>
+			<li><a class="profile" href="">Profile</a></li>
+			<li><a class="achieves" href="" >Achieves</a></li>
+			<li><a class="diary" href="" >Diary</a></li>
+		</ul>
+		</nav>
+
+	</header>
+
+	<div id="main">
+		<div class="row">
+  	<div class="span4" style="background-color:red">導入</div>
+ 	<div class="span8" style="background-color:blue">できたのか？</div>
+</div>
+		<%= yield %>
+
+	</div>
+
+	<aside>
+	</aside>
+
+	<footer>
+	</footer>
+
+
+
+
+</div>
+</body>
+</html>
