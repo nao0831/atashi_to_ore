@@ -10,7 +10,6 @@
 </head>
 
   <body>
-
     <!-- nav bar -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -56,6 +55,15 @@
     </div>
 
     <div class="container">
+      <div class="row">
+        <div class="span8">
+          <section class="contents">
+          <%= yield %><!-- ここに各テンプレートうめこみ--> 
+          </section>
+        </div>
+        <div class="span3"></div>
+        <div class="span1"></div>
+      </div>
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <!-- 
@@ -85,7 +93,6 @@
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div>
        -->      
-      <%= yield %>
       </div> 
       <hr>
 
