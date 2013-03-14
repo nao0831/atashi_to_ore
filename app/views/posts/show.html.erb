@@ -1,6 +1,7 @@
 
 <div class="post-img"></div>
-<h1><%= @post.title %></h1>
+<h3><%= @post.title %></h3>
+<span class="label"><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></span>
 <p><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></p>
 <p><%= @post.content %></p>
 
