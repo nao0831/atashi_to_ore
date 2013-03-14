@@ -9,6 +9,9 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@posts = Post.all(:order =>"created_at DESC")
+		@comment = Post.find(params[:id]).comments.build
+
 	end
 
 	def new
@@ -43,7 +46,7 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to posts_path
+		redirect_to posts_path, notice:"削除されたよん！"
 	end
 
 

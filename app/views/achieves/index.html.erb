@@ -1,0 +1,9 @@
+<h1>Achieves!</h1>
+<p>にゃんにゃんにゃん</p>
+
+<% @achieves.each do |achieve| %>
+	<h2>
+		<%= achieve.title %>
+	</h2>
+	<p><%= achieve.content %></p>
+<% end %>

@@ -1,7 +1,76 @@
 
 <div class="post-img"></div>
 <h1><%= @post.title %></h1>
-<p></p>
+<p><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></p>
 <p><%= @post.content %></p>
 
+<!-- コメント表示 -->
+<h2>Comments</h2>
+<ul>
+	<% if @post.comments.any? %>
+		<% @post.comments.each do |comment| %>
+		<li id="comment_<%= comment.id %>">
+			<%= comment.body %> (by <%= comment.commenter %> )
+			<%= link_to "delete", [comment.post, comment], :confirm =>"Sure?", :method => :delete, :remote => true %>
+		</li>
+		<% end %>
+	<% else %>
+		<li>no comment yet.</li>
+	<% end %>
+</ul>
+
+<!-- コメント入力フォーム -->
+<h2>Add a comment</h2>
+
+<%= form_for([@post, @comment]) do |f| %>
+
+<!--エラーメッセージ -->
+
+	<% if @comment.errors.any? %>
+		<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :commenter %>
+		<%= f.text_field :commenter %>
+	</div>
+
+	<div class="field">
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+
+<% end %>
+
+
+<!-- サイドバー -->
+<% content_for :sidebar do %>
+	<ul class="unstyled">
+		<h2>最近の投稿</h2>
+		<% @posts.each do |post| %>
+		<li>
+			<%= link_to post.title, post_path(post) %>
+			<span class="pull-right"><td><%= post.created_at.strftime('%Y/%m/%d') %></span>
+		</li>
+		<% end %>
+	</ul>
+<% end %>
+
 <%= link_to "一覧", posts_path %>
+
+<script>
+	$(function(){
+		$('a[data-method="delete"]').live('ajax:success', function(e, data, status, xhr){
+			$('#comment_'+data.comment.id).fadeOut("slow");
+		});
+
+	});
+</script>
