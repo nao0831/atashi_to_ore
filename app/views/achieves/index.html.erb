@@ -1,9 +1,61 @@
 <h1>Achieves!</h1>
 <p>にゃんにゃんにゃん</p>
 
-<% @achieves.each do |achieve| %>
+<!-- <% @achieves.each do |achieve| %>
 	<h2>
 		<%= achieve.title %>
 	</h2>
 	<p><%= achieve.content %></p>
 <% end %>
+
+-->
+
+<div id="notice"><%= notice %></div>
+
+
+<h1>一覧</h1>
+<table class="table table-striped table-hover">
+	
+	<!--<thead>
+    	<tr>
+      	<th>あおあお</th>
+      	<th>うおおお</th>
+    	</tr>
+  	</thead>
+  -->
+	<tbody>
+
+		<% @achieves.each do |achieve| %>
+		<tr>
+		<td><%= link_to achieve.title, achieve_path(achieve) %></td>
+		<td><%= achieve.created_at.strftime('%Y/%m/%d') %></td>
+
+		<!--　ログインしてる時だけ表示 -->
+		<% if current_user != nil %>
+		<td><%= link_to "Edit", edit_achieve_path(achieve) %></td>
+		<td><%= link_to "Delete", achieve, :confirm => "削除しますよー",
+							:method => :delete %></td>
+		<% end %>
+
+<% end %>
+</tr>
+</tbody>
+</table>
+
+<%= link_to "一覧", achieves_path %> 
+<!--　ログインしてる時だけ表示 -->
+<% if current_user != nil %>
+<%= link_to "New", new_achieve_path %>
+<% end %>
+<!-- サイドバーの内容を定義 -->
+
+
+
+<!-- noticeメッセージを時間がたったら消えるようにjQueryで指定 -->
+<script>
+$(function(){
+	setTimeout(function(){
+		$("#notice").fadeOut("slow");
+	}, 800);
+});
+</script>
