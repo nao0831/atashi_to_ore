@@ -9,12 +9,16 @@
 
 </head>
 
-<body>
+  <body>
     <!-- nav bar -->
-  <header>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="brand" href="/"><%= image_tag "logo3.png" %></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
@@ -58,27 +62,13 @@
               <input type="text" class="search-query" placeholder="Search">
             </form>
 
-
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-  </header>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="span9">
-          <section class="contents">
-          <%= yield %><!-- ここに各テンプレートうめこみ--> 
-          </section>
-        </div>
-        <div class="span3">
-          <div class="sidebar">
-          <%= yield :sidebar %> <!-- サイドバーを埋め込み -->
-          </div>
-        </div>
-      </div>
-
+    <div class="container">
+        <%= yield %><!-- ここに各テンプレートうめこみ--> 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <!-- 
       <div class="hero-unit">
@@ -143,6 +133,7 @@
         </div>
       </div>
       <div class="span3 col">
+      
         <div class="block">
           <form class="form-inline">
             <div class="input-append">

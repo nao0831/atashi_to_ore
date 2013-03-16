@@ -1,4 +1,3 @@
-//@import "bootstrap/bootstrap";
 article,
 aside,
 details,
@@ -130,7 +129,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #ab4d44;
-  background-color: #eee; /*変更したよ*/
+  background-color: #ebe2d6;
 }
 a {
   color: #b34a93;
@@ -1696,7 +1695,7 @@ table .span24 {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("/assets/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;

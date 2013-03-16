@@ -1,77 +1,92 @@
-
-<div class="post-img"></div>
-<h3><%= @post.title %></h3>
-<span class="label"><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></span>
-<p><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-<p><%= @post.content %></p>
-
+<div class="post-detail">
+<div>
+	<span class="label post-date"><%= @post.created_at.strftime('%m.%d %Y') %></span>
+</div>
+<div class="post-title">
+	<h3><%= @post.title %></h3>
+</div>
+<div class="post-img">
+	<% if @post.picture_data != nil %>
+	<%= image_tag post_picture_path(@post),  :class =>"post-img"%>
+	<% end %>
+</div>
+<div class="clearfix"></div>
+<div>
+	<%= simple_format @post.content %>
+</div>
+<hr></hr>
 <!-- コメント表示 -->
-<h2>Comments</h2>
+<h3>Comments</h3>
 <ul>
 	<% if @post.comments.any? %>
-		<% @post.comments.each do |comment| %>
-		<li id="comment_<%= comment.id %>">
-			<%= comment.body %> (by <%= comment.commenter %> )
-			<%= link_to "delete", [comment.post, comment], :confirm =>"Sure?", :method => :delete, :remote => true %>
-		</li>
+	<% @post.comments.each do |comment| %>
+	<li id="comment_<%= comment.id %>">
+		<%= comment.body %> (by <%= comment.commenter %> )
+		<% if current_user != nil %>
+		<%= link_to "delete", [comment.post, comment], :confirm =>"Sure?", :method => :delete, :remote => true %>
 		<% end %>
+	</li>
+	<% end %>
 	<% else %>
-		<li>no comment yet.</li>
+	<li>no comment yet.</li>
 	<% end %>
 </ul>
+<hr></hr>
 
 <!-- コメント入力フォーム -->
-<h2>Add a comment</h2>
+<h3>Add a comment</h3>
 
 <%= form_for([@post, @comment]) do |f| %>
 
 <!--エラーメッセージ -->
 
-	<% if @comment.errors.any? %>
-		<ul>
-			<% @comment.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
+<% if @comment.errors.any? %>
+<ul>
+	<% @comment.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
 	<% end %>
+</ul>
+<% end %>
 
-	<div class="field">
-		<%= f.label :commenter %>
-		<%= f.text_field :commenter %>
-	</div>
+<div class="field commenter">
+	<%= f.label :commenter %>
+	<%= f.text_field :commenter %>
+</div>
 
-	<div class="field">
-		<%= f.label :body %>
-		<%= f.text_area :body %>
-	</div>
+<div class="field comment-body">
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+</div>
 
-	<div class="actions">
-		<%= f.submit %>
-	</div>
+<div class="actions">
+	<%= f.submit "コメントする", :class => "btn btn-danger btn-small" %>
+</div>
 
 <% end %>
 
 
 <!-- サイドバー -->
 <% content_for :sidebar do %>
-	<ul class="unstyled">
-		<h2>最近の投稿</h2>
-		<% @posts.each do |post| %>
-		<li>
-			<%= link_to post.title, post_path(post) %>
-			<span class="pull-right"><td><%= post.created_at.strftime('%Y/%m/%d') %></span>
-		</li>
-		<% end %>
-	</ul>
+<ul class="unstyled">
+	<h4>最近の投稿</h4>
+	<% @resent_posts.each do |post| %>
+	<li>
+		<%= link_to post.title, post_path(post) %>
+		<span class="pull-right"><td><%= post.created_at.strftime('%m.%d %Y') %></span>
+	</li>
+	<% end %>
+</ul>
 <% end %>
 
-<%= link_to "一覧", posts_path %>
+<%= link_to "一覧", posts_path, :class => "btn" %>
 
 <script>
-	$(function(){
-		$('a[data-method="delete"]').live('ajax:success', function(e, data, status, xhr){
-			$('#comment_'+data.comment.id).fadeOut("slow");
-		});
-
+$(function(){
+	$('a[data-method="delete"]').live('ajax:success', function(e, data, status, xhr){
+		$('#comment_'+data.comment.id).fadeOut("slow");
 	});
+
+});
 </script>
+
+</div>

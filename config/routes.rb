@@ -2,6 +2,7 @@ Atashitoore::Application.routes.draw do
 
 
   resources:posts do 
+    get :picture
     resources :comments
   end
 

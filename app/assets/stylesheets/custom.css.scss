@@ -1,5 +1,55 @@
-//@import "bootstrap";
-.contents{
 
-	background-color: #ebe2d6;
+.post-date{
+	font-size: 16px;
+}
+
+.label{
+  //background-color: #A9A9A9;
+}
+.navbar-inner{
+  height: 40px;
+}
+
+.contents{
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #eee;
+  padding-bottom: 20px;
+}
+
+.post-list{
+  padding: 20px;
+}
+
+.sidebar{
+  padding: 10px;
+}
+
+.post-img{
+  max-height: 400px;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.post-title{
+  //float: left;
+}
+
+.post-form{
+  .post-content{
+    textarea{
+      width: 550px;
+    }
+
+  }
+}
+
+.post-detail{
+  .comment-body{
+    textarea{
+      width: 550px;
+      height: 100px;
+    }
+  }
 }

@@ -5,11 +5,14 @@ class PostsController < ApplicationController
 	def index
 		#postsっていう名前のインスタンス変数にPostオブジェクトから全部.allもってくる
 		@posts = Post.all(:order =>"created_at DESC")
+		@resent_posts = Post.order("created_at DESC").limit(10)
 	end
 
 	def show
 		@post = Post.find(params[:id])
 		@posts = Post.all(:order =>"created_at DESC")
+		@resent_posts = Post.order("created_at DESC").limit(10)
+
 		@comment = Post.find(params[:id]).comments.build
 
 	end
@@ -47,6 +50,11 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to posts_path, notice:"削除されたよん！"
+	end
+
+	def picture
+    	@post = Post.find(params[:post_id])
+    	send_data(@post.picture_data, :type => @post.content_type)
 	end
 
 

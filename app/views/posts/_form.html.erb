@@ -1,22 +1,28 @@
+<div class="post-form">
 <%= form_for(@post) do |f| %>
 
-<% if @post.errors.any? %>
-<ul>
-<% @post.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
+	<% if @post.errors.any? %>
+	<ul>
+	<% @post.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
 </ul>
 
 <% end %>
 
-<div class="field">
+<div class="field post-title">
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 </div>
 
-<div class="field">
+<div class="field post-content">
 	<%= f.label :content %>
 	<%= f.text_area :content %>
+</div>
+
+<div class="field post-img">
+    <%= f.label :picture_file %>
+    <%= f.file_field :picture_file %>
 </div>
 
 <div class="actions">
@@ -24,3 +30,4 @@
 </div>
 
 <% end %>
+</div>

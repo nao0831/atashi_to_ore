@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+/*$iconSpritePath: "/assets/glyphicons-halflings.png";
+$iconWhiteSpritePath: "/assets/glyphicons-halflings-white.png"; */
+
 @import "bootstrap";
 
 
@@ -19,6 +22,8 @@
 *{
 	margin: 0px;
 	/*padding: 0px; */
+	font-family: 'Trebuchet MS', 'Arial', 'Helvetica', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+
 }
 
 
@@ -30,6 +35,9 @@ $font-mini:     9px;
 body{
  	padding-top:60px;
 }
+
+
+
 
 /*ブラウザの横幅が980px以下のとき*/
 /*
