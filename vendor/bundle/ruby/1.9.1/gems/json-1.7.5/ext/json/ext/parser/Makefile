@@ -126,8 +126,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/nao/railsprojects/atashitoore/vender/bundle/ruby/1.9.1/gems/json-1.7.5/lib$(target_prefix)
-RUBYARCHDIR = /Users/nao/railsprojects/atashitoore/vender/bundle/ruby/1.9.1/gems/json-1.7.5/lib$(target_prefix)
+RUBYLIBDIR = /Users/nao/railsprojects/atashitoore/vendor/bundle/ruby/1.9.1/gems/json-1.7.5/lib$(target_prefix)
+RUBYARCHDIR = /Users/nao/railsprojects/atashitoore/vendor/bundle/ruby/1.9.1/gems/json-1.7.5/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

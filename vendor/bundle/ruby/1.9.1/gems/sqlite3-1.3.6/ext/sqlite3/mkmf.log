@@ -143,7 +143,7 @@ conftest.c: In function ‘t’:
 conftest.c:5: warning: implicit declaration of function ‘sqlite3_column_database_name’
 Undefined symbols for architecture x86_64:
   "_sqlite3_column_database_name", referenced from:
-      _t in cceVRbl6.o
+      _t in ccv2BngN.o
 ld: symbol(s) not found for architecture x86_64
 collect2: ld returned 1 exit status
 checked program was:
@@ -178,7 +178,7 @@ conftest.c: In function ‘t’:
 conftest.c:5: warning: implicit declaration of function ‘sqlite3_enable_load_extension’
 Undefined symbols for architecture x86_64:
   "_sqlite3_enable_load_extension", referenced from:
-      _t in cclsz2Rv.o
+      _t in cc2lwsgd.o
 ld: symbol(s) not found for architecture x86_64
 collect2: ld returned 1 exit status
 checked program was:
@@ -213,7 +213,7 @@ conftest.c: In function ‘t’:
 conftest.c:5: warning: implicit declaration of function ‘sqlite3_load_extension’
 Undefined symbols for architecture x86_64:
   "_sqlite3_load_extension", referenced from:
-      _t in cc7lOFeG.o
+      _t in cctFw1Ax.o
 ld: symbol(s) not found for architecture x86_64
 collect2: ld returned 1 exit status
 checked program was:

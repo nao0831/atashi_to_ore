@@ -4,9 +4,9 @@
 		<hr></hr>
 		<% @posts.each do |post| %>
 			<li>
-				<i class="icon-pencil"></i>
-				<spna><%= link_to post.title, post_path(post) %></span>
-				<span class="pull-right"><%= post.created_at.strftime('%m.%d  %Y') %></span>
+				<i class="icon-book"></i>
+				<span class=""><%= link_to post.title, post_path(post) %></span>
+				<span class="pull-left post-date"><%= post.created_at.strftime('%m.%d  %Y') %></span>
 		
 			<% if current_user != nil %>
 				<div>
